@@ -53,11 +53,14 @@ public class PlayersApiService {
         return Optional.of(m_teamMapper.toTeamViewModel(team));
     }
 
-    public Optional<PlayerViewModel> findPlayerByPlayerId(long id)
+    public PlayerViewModel findPlayerByPlayerId(long id)
     {
         var player = m_playersApiServiceHelper.findPlayerByPlayerId(id).orElseThrow();
+        var team = m_playersApiServiceHelper.findTeamByTeamId(player.getTeam().getId()).orElseThrow();
 
-        return Optional.of(m_playerMapper.toPLayerViewModel(player));
+        player.setTeamName(team.getTeamName());
+
+        return m_playerMapper.toPLayerViewModel(player);
     }
 
     public TeamViewModel saveTeam(TeamViewModel teamViewModel)

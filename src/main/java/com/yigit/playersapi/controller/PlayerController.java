@@ -19,7 +19,7 @@ public class PlayerController {
     }
 
     @GetMapping("find")
-    public Optional<PlayerViewModel> findPlayerById(long id)
+    public PlayerViewModel findPlayerById(long id)
     {
         return m_playersApiService.findPlayerByPlayerId(id);
     }

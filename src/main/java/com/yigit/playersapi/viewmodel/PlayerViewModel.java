@@ -4,7 +4,7 @@ public class PlayerViewModel {
     private String name;
     private String lastName;
     private String nationality;
-
+    private String teamName;
 
     public String getName() {
         return name;
@@ -30,4 +30,11 @@ public class PlayerViewModel {
         this.nationality = nationality;
     }
 
+    public String getTeamName() {
+        return teamName;
+    }
+
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
+    }
 }
