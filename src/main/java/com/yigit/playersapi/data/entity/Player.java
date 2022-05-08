@@ -19,7 +19,7 @@ public class Player {
     @JoinColumn(name = "team_id")
     private Team team;
 
-
+    @Transient
     private String teamName;
 
     @Transient
@@ -76,5 +76,14 @@ public class Player {
 
     public void setTeam(Team team) {
         this.team = team;
+    }
+
+
+    public String getTeamName() {
+        return teamName;
+    }
+
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
     }
 }
