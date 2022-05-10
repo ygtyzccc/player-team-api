@@ -1,8 +1,6 @@
 package com.yigit.playersapi.service;
 
 import com.yigit.playersapi.data.dal.PlayersApiServiceHelper;
-import com.yigit.playersapi.data.entity.Player;
-import com.yigit.playersapi.data.entity.Team;
 import com.yigit.playersapi.mapper.IPlayerMapper;
 import com.yigit.playersapi.mapper.ITeamMapper;
 import com.yigit.playersapi.viewmodel.PlayerSaveDTO;
