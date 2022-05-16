@@ -7,6 +7,7 @@ import com.yigit.playersapi.viewmodel.PlayerSaveDTO;
 import com.yigit.playersapi.viewmodel.PlayerViewModel;
 import com.yigit.playersapi.viewmodel.TeamViewModel;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,14 +17,17 @@ import java.util.stream.StreamSupport;
 @Service
 public class PlayersApiService {
 
-    private PlayersApiServiceHelper m_playersApiServiceHelper;
-    private IPlayerMapper m_playerMapper;
-    private ITeamMapper m_teamMapper;
+    private final PlayersApiServiceHelper m_playersApiServiceHelper;
+    private final IPlayerMapper m_playerMapper;
+    private final ITeamMapper m_teamMapper;
+    private final RestTemplate m_restTemplate;
 
-    public PlayersApiService(PlayersApiServiceHelper playersApiServiceHelper, IPlayerMapper playerMapper, ITeamMapper teamMapper) {
+
+    public PlayersApiService(PlayersApiServiceHelper playersApiServiceHelper, IPlayerMapper playerMapper, ITeamMapper teamMapper, RestTemplate restTemplate) {
         m_playersApiServiceHelper = playersApiServiceHelper;
         m_playerMapper = playerMapper;
         m_teamMapper = teamMapper;
+        m_restTemplate = restTemplate;
     }
 
     public boolean existTeamById(long id)
